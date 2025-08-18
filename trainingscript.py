@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
-
 
 import torch
 import torch.nn as nn
@@ -159,9 +157,6 @@ def plot_reconstruction_errors(errors):
     
 
 
-# In[7]:
-
-
 # ---- Main training script ----
 if __name__ == "__main__":
     device = torch.device('cuda')
@@ -204,10 +199,6 @@ if __name__ == "__main__":
         'lstmae.pth')
     
 
-
-# In[8]:
-
-
 # --- Additional val --- #
 
 csv = 'dataset/Valset' 
@@ -231,9 +222,6 @@ val_loader = DataLoader(val_data, batch_size, shuffle=False)
 
 val_errors = reconstruction_errors(model, val_loader)
 plot_reconstruction_errors(val_errors)
-
-
-# In[9]:
 
 
 ### --- Hyperparameter optimisation (Doesn't save model) --- ###
@@ -269,10 +257,5 @@ if __name__ == "__main__":
     # Val reconstruction error plot
     val_errors = reconstruction_errors(model, val_loader)
     plot_reconstruction_errors(val_errors)
-
-
-# In[ ]:
-
-
 
 
