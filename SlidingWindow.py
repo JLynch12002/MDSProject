@@ -11,7 +11,7 @@ import random
 import math
 
 class SlidingWindow:
-    def __init__(self, window_size, step_size, buffer_size=10):
+    def __init__(self, window_size, step_size, buffer_size):
         self.window_size = window_size
         self.step_size = step_size
         self.window = deque(maxlen=window_size)
@@ -25,7 +25,7 @@ class SlidingWindow:
         self.time_after_trigger = 0
         
     def add(self, data_point):
-        # Always maintain recent history
+        # Always maintain recent history for buffer when triggered
         self.data_history.append(data_point)
         
         # Adds new time step to the window and removes the oldest
@@ -99,7 +99,7 @@ class SlidingWindow:
         return np.mean(np.abs(pred_error))
         
     def volatility(self, window):
-        # Standard deviation of 5 most recent absolute errors
+        # Standard deviation of 5 most recent absolute errors (5 limit applied in Main.py)
         errors = [abs(i[0]) for i in window]
         return np.std(errors)
     
