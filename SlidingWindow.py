@@ -99,8 +99,8 @@ class SlidingWindow:
         return np.mean(np.abs(pred_error))
         
     def volatility(self, window):
-        # Standard deviation of 5 most recent absolute errors (5 limit applied in Main.py)
-        errors = [abs(i[0]) for i in window]
+        # Standard deviation of 5 most recent absolute errors 
+        errors = [abs(i[0]) for i in window[-5:]]
         return np.std(errors)
     
 
