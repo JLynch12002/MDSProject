@@ -48,7 +48,7 @@ def evaluate_buffer(model, buffer, device='cpu'):
 # Calculates the mean and SD of training dataset window's rmse, mae, volatility and pred temp error 
 def metric_stats(training_data, window_size, step_size):
     
-    window = SlidingWindow(window_size=window_size, step_size=step_size, buffer_size=20)
+    window = SlidingWindow(window_size=window_size, step_size=step_size, buffer_size=20) # ignore buffer size, not used here
     
     # stat values
     rmse_values = []
