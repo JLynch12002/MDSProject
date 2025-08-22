@@ -124,7 +124,7 @@ class Incubator:
                     for anomaly in self.anomalies:
                         if anomaly['type'] == 'sensor fail':
                             anomaly_buffer_start = anomaly['start'] - cooldown
-                            anomaly_buffer_end = (anomaly['start'] + anomaly['duration']) + cooldownh
+                            anomaly_buffer_end = (anomaly['start'] + anomaly['duration']) + cooldown
                             if not (drift_end < anomaly_buffer_start or anomaly_start > anomaly_buffer_end):
                                 clash = True
                                 break
