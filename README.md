@@ -12,3 +12,4 @@ This framework distinguishes between expected inaccuracies in low-fidelity digit
 + datasets- Training and test datasets 
 + lstmae.pth - Trained model parameters
 + results - evaluated anomaly timeseries result plots and confusion matrices
++ Comp_cost - Code to compare the sliding window selective evaluation mechanic (buffer windows) to exhaustive LSTM-AE evaluations processing times
