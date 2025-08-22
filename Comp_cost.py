@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[17]:
-
-
 import torch
 import numpy as np
 import pandas as pd
@@ -176,9 +173,6 @@ if __name__ == "__main__":
             print(f"\nExhaustive: {costs['exhaustive']['windows_evaluated']} windows")
             print(f"Total processing time: {costs['exhaustive']['total_time']:.2f}s")
             print(f"Window reduction: {costs['savings']['window_reduction']:.1%}")
-
-
-# In[ ]:
 
 
 
