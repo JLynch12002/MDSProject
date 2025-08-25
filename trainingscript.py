@@ -245,7 +245,7 @@ if __name__ == "__main__":
     val_loader = DataLoader(val_dataset, batch_size, shuffle=False)
     
     # Initialise model
-    model = LSTMAE(input_size=3, hidden_size=64, seq_len=seq_len, dropout=0.3)
+    model = LSTMAE(input_size=3, hidden_size=32, seq_len=seq_len, dropout=0.3)
     model = model.to(device)
     
     # Training model
