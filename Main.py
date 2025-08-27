@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
-
-
 import torch
 import numpy as np
 import pandas as pd
@@ -54,7 +51,8 @@ def metric_stats(training_data, window_size, step_size):
     rmse_values = []
     mae_values = []
     volatility_values = []
-    temp_errors = []
+    
+    temp_error = training_data[:, 0]
     
     # Processes training set through sliding windows 
     for data in training_data:
@@ -66,9 +64,6 @@ def metric_stats(training_data, window_size, step_size):
             mae_values.append(mae)
             volatility_values.append(vol)
             
-            # Calculate mean temperature error for this window
-            window_errors = window_data[:, 0]
-            temp_errors.append(np.mean(window_errors))
     
     # Calculate window percentile statistics for each metric
     stats = {
@@ -87,16 +82,13 @@ def metric_stats(training_data, window_size, step_size):
             'std': np.std(volatility_values),
             '99per': np.percentile(volatility_values, 99)},
         'temp_error': {
-            'mean': np.mean(temp_errors),
-            'std': np.std(temp_errors),
-            '99per': np.percentile(temp_errors, 99),
-            '1per': np.percentile(temp_errors, 1)}}
+            'mean': np.mean(temp_error),
+            'std': np.std(temp_error),
+            '99per': np.percentile(temp_error, 99),
+            '1per': np.percentile(temp_error, 1)}}
     
 
-    return stats, rmse_values, mae_values, volatility_values, temp_errors
-
-
-# In[3]:
+    return stats, rmse_values, mae_values, volatility_values, temp_error
 
 
 # Loading training datset for normal behaviour metric stats calculation
@@ -107,9 +99,6 @@ training_set = training_df.to_numpy()
 
 
 stats, rmse_values, mae_values, volatility_values, temp_errors = metric_stats(training_set, 30, 1)
-
-
-# In[4]:
 
 
 # --- plots the metrics --- #
